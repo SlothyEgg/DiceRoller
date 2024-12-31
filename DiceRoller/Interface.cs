@@ -17,7 +17,7 @@ namespace DiceRoller
         //TODO: Handle Multiple Die Rolls.
         public void rollDie(int numberOfDice, int numberOfFaces)
         {
-            Console.WriteLine("Rolling die {0}d{1}: {3}",numberOfDice, numberOfFaces,roller.generateRandomNumber())       
+            Console.WriteLine("Rolling die {0}d{1}: {2}", numberOfDice, numberOfFaces, roller.generateRandomNumber(numberOfFaces+1));      
         }
     }
 }
