@@ -28,7 +28,7 @@ namespace DiceRoller
             List<int> numbers = new(ammount);
             for (int i = 0; i < ammount; i++) 
             {
-                numbers.Add(rnd.Next(0, upperbound));
+                numbers.Add(rnd.Next(1, upperbound));
             }
             return numbers;
         }

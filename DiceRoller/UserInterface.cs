@@ -10,6 +10,7 @@ using System.Threading.Tasks;
  * 
  * This will start as a skeleton of an interface in the command line while i work on the functionality of the program and should be built out into a proper
  * GUI later.
+ * 
  */
 
 namespace DiceRoller
@@ -29,6 +30,7 @@ namespace DiceRoller
             while (true)
             {
                 int numberOfDie;
+                int numberOfFaces;
                 while (true)
                 {
                     Console.WriteLine("Hello, please input the number of dice that you would like to roll, or EXIT to leave.");
@@ -47,24 +49,46 @@ namespace DiceRoller
                         Console.WriteLine("Invalid input, please enter a positive integer that is <= " + Int32.MaxValue);
                     }
                 }
-                userInput.rollDie(numberOfDie, 20);
-            }
+
+                while (true) 
+                {
+                    Console.WriteLine("Please input the number of faces these die have.");
+                    bool ValidInput = int.TryParse(Console.ReadLine(), out numberOfFaces);
+                    if (ValidInput && numberOfFaces > 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input, please enter a positive integer that is <= " + Int32.MaxValue);
+                    }
+
+                }
+                userInput.rollDie(numberOfDie, numberOfFaces);
+            } 
         }
+
+
 
         public static void PrintResults(int numberOfDice, int sizeOfDie,List<int> rolls,int result)
         { 
 
             Console.Write("Rolling {0}d{1}: ", numberOfDice, sizeOfDie);
-            for (int i = 0; i < rolls.Count; i++) 
+            //Do not show individual rolls if too many dice are rolled 
+            if (rolls.Count < 50)
             {
-                if (i > 0)
+                for (int i = 0; i < rolls.Count; i++)
                 {
-                    Console.Write(" + ");
+                    if (i > 0)
+                    {
+                        Console.Write(" + ");
+                    }
+                    Console.Write(" [" + rolls[i] + "] ");
                 }
-                Console.Write(" [" + rolls[i] + "] ");
+                Console.Write(" = ");
             }
 
-            Console.Write(" = " + +result+ "\n");
+            Console.Write(+result+ "\n");
         }
     }
 }
