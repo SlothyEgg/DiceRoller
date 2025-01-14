@@ -11,6 +11,9 @@ using System.Threading.Tasks;
  * This will start as a skeleton of an interface in the command line while i work on the functionality of the program and should be built out into a proper
  * GUI later.
  * 
+ * EDIT: This will NOT be built into a GUI later as it turns out that works different to how I expected. As a result code from this project will likely be recycled and used in a new WPF project.
+ * I may continue to update this project further to test and experiment with idea, I may also not. 
+ * 
  */
 
 namespace DiceRoller
